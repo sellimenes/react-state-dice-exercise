@@ -6,4 +6,4 @@
 
 🔷 Used technologies: React
 
-![roll_dice](https://user-images.githubusercontent.com/23125375/166901350-436051f4-369a-45a9-80a5-defe6535cf5d.gif)
+![sellimenes-dice-game-3](https://user-images.githubusercontent.com/23125375/166947446-d9744013-2c85-47a7-a74b-0137eecabd75.gif)
