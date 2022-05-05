@@ -6,4 +6,4 @@
 
 🔷 Used technologies: React
 
-![sellimenes-dice-game-3](https://user-images.githubusercontent.com/23125375/166947446-d9744013-2c85-47a7-a74b-0137eecabd75.gif)
+https://user-images.githubusercontent.com/23125375/166948624-95f40913-e0ef-4d3e-aa84-7e5e3522a6be.mp4
