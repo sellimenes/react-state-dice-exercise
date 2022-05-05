@@ -6,48 +6,69 @@ export default class RollDice extends Component {
   state = {
     number1: "one",
     number2: "one",
+    isRolling: false,
+  };
+
+  static defaultProps = {
+    sides: ["one", "two", "three", "four", "five", "six"],
   };
   render() {
     const rollHandler = () => {
-      let Rnd1 = Math.floor(Math.random() * 6) + 1;
-      let Rnd2 = Math.floor(Math.random() * 6) + 1;
-      if (Rnd1 === 1) {
-        this.setState({ number1: "one" });
-      } else if (Rnd1 === 2) {
-        this.setState({ number1: "two" });
-      } else if (Rnd1 === 3) {
-        this.setState({ number1: "three" });
-      } else if (Rnd1 === 4) {
-        this.setState({ number1: "four" });
-      } else if (Rnd1 === 5) {
-        this.setState({ number1: "five" });
-      } else if (Rnd1 === 6) {
-        this.setState({ number1: "six" });
-      }
+      // Pick 2 random numbers from defaultProps
+      const newNumber1 =
+        this.props.sides[Math.floor(Math.random() * this.props.sides.length)];
+      const newNumber2 =
+        this.props.sides[Math.floor(Math.random() * this.props.sides.length)];
 
-      if (Rnd2 === 1) {
-        this.setState({ number2: "one" });
-      } else if (Rnd2 === 2) {
-        this.setState({ number2: "two" });
-      } else if (Rnd2 === 3) {
-        this.setState({ number2: "three" });
-      } else if (Rnd2 === 4) {
-        this.setState({ number2: "four" });
-      } else if (Rnd2 === 5) {
-        this.setState({ number2: "five" });
-      } else if (Rnd2 === 6) {
-        this.setState({ number2: "six" });
-      }
+      // Match new random numbers with the state numbers
+      this.setState({
+        number1: newNumber1,
+        number2: newNumber2,
+        isRolling: true, // Change button text
+      });
+
+      // Change default button text after 1s
+      setTimeout(() => {
+        this.setState({ isRolling: false });
+      }, 1000);
     };
+
+    const oneDice = () => {
+      document.querySelector(".dice1").style.display = "none";
+      document.querySelector(".dices").style.gap = 0;
+    };
+    const twoDice = () => {
+      document.querySelector(".dice1").style.display = "block";
+      document.querySelector(".dices").style.gap = "1rem";
+    };
+
     return (
       <div className="rollDice">
         <div className="dices">
-          <Dice classDice={`fas fa-dice-${this.state.number1}`} />
-          <Dice classDice={`fas fa-dice-${this.state.number2}`} />
+          <Dice
+            classDice={`dice1 fas fa-dice-${this.state.number1} ${
+              this.state.isRolling ? "shaking" : ""
+            }`}
+            rolling={this.state.isRolling}
+          />
+          <Dice
+            classDice={`dice2 fas fa-dice-${this.state.number2} ${
+              this.state.isRolling ? "shaking" : ""
+            }`}
+            rolling={this.state.isRolling}
+          />
         </div>
-        <button onClick={rollHandler} className="rollBtn">
-          Roll Dice!
+        <button
+          onClick={rollHandler}
+          className="rollBtn"
+          disabled={this.state.isRolling}
+        >
+          {this.state.isRolling ? "Rolling..." : "Roll Dice!"}
         </button>
+        <div className="diceNumber">
+          <button onClick={oneDice}>1 Dice</button>
+          <button onClick={twoDice}>2 Dices</button>
+        </div>
       </div>
     );
   }
