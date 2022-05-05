@@ -2,7 +2,7 @@
 
 🔷 04.05.2022
 
-🔷 Netlify demo: Coming soon...
+🔷 Netlify demo: https://sellimenes-dice-game.netlify.app/
 
 🔷 Used technologies: React
 
