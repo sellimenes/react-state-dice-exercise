@@ -1,10 +1,10 @@
 import "./App.css";
-import Die from "./Components/Die";
+import RollDice from "./Components/RollDice";
 
 function App() {
   return (
     <div className="app">
-      <Die />
+      <RollDice />
     </div>
   );
 }
