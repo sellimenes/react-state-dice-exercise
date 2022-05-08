@@ -15,6 +15,7 @@ export default class RollDice extends Component {
   render() {
     const rollHandler = () => {
       // Pick 2 random numbers from defaultProps
+      // cant miss the day...
       const newNumber1 =
         this.props.sides[Math.floor(Math.random() * this.props.sides.length)];
       const newNumber2 =
